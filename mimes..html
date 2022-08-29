@@ -10,8 +10,16 @@
     <div id="myImg">
         <script >async function init(){
             console.log(" asynync function");
+            const mem = await getmemes();
+            console.log(mem);
         }
         init();
+        async function getmemes(){
+            const mem ="https://api.imgflip.com/get_memes";
+            const result = await fetch(mem);
+            const json = await result.json();
+            return json.data.memes;
+        }
      </script>
     </div>
 </body>
